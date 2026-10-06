@@ -1,0 +1,73 @@
+/* FMI Industries Industrial Design System Styles */
+:root {
+  --color-near-black: #161817;
+  --color-navy-dark: #232b30;
+  --color-navy: #37607e;
+  --color-navy-mid: #33556e;
+  --color-mid-blue: #8ca8ba;
+  --color-light-blue: #c1d5df;
+  --color-orange: #e9874f;
+  --color-orange-deep: #e35b0e;
+  --color-surface: #f1f5f5;
+  --color-white: #ffffff;
+}
+
+html {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color-scheme: dark;
+  background-color: #161817;
+  color: #ffffff;
+  scroll-behavior: smooth;
+}
+
+code, pre, .font-mono {
+  font-family: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* FMI Technical Grid */
+.bg-technical-grid {
+  background-image: 
+    linear-gradient(to right, rgba(55, 96, 126, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(55, 96, 126, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.aerospace-glow {
+  background: radial-gradient(800px circle at 50% 12%, rgba(233, 135, 79, 0.06), transparent 60%);
+}
+
+.steel-ambient-glow {
+  background: radial-gradient(700px circle at 80% 20%, rgba(55, 96, 126, 0.12), transparent 70%);
+}
+
+/* FMI Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #161817;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #37607e;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e9874f;
+}
+
+/* Modal transition */
+.modal-hidden {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+.modal-visible {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}

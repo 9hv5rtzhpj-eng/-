@@ -1,6 +1,8 @@
 {
-  "name": "陳泊華 Bowen | Portfolio",
+  "name": "林詠晟 | Portfolio",
   "description": "Full-Stack Developer & AI Systems Engineer - 現代極簡個人技術作品集與架構展示",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
