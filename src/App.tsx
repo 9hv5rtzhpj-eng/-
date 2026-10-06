@@ -14,29 +14,29 @@ import { Footer } from './components/Footer';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-[#000000] text-[#F4F4F6] selection:bg-[#E6E6E9] selection:text-[#000000]">
-      {/* 導航欄 (Sticky Header) */}
+    <div className="min-h-screen bg-[#161817] text-white selection:bg-[#e9874f] selection:text-white antialiased">
+      {/* FMI-Style Sticky Engineering Header */}
       <Navbar />
 
-      {/* 主內容區塊 (Main Landmark) */}
+      {/* Main Landmark */}
       <main>
-        {/* 1. Hero 首頁視覺與定位 (林詠晟 / Sam) */}
+        {/* 1. Hero: Quality Proven in Extreme Environments (林詠晟 / Sam) */}
         <Hero />
 
-        {/* 2. 關於我、經歷與工程哲學 */}
+        {/* 2. Operational Capabilities & Engineering Philosophy */}
         <About />
 
-        {/* 3. 精選架構專案 (含詳細架構彈窗與篩選) */}
+        {/* 3. Featured Production Systems & Deliverables */}
         <Projects />
 
-        {/* 4. 技術能力分群與系統設計方法論 */}
+        {/* 4. Core Disciplines & Architecture Methodologies */}
         <Skills />
 
-        {/* 5. 聯絡我 (一鍵複製信箱與互動表單) */}
+        {/* 5. Direct Inquiries & Collaboration Form */}
         <Contact />
       </main>
 
-      {/* 頁尾 (Footer) */}
+      {/* Footer */}
       <Footer />
     </div>
   );

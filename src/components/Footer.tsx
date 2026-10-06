@@ -11,18 +11,18 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="border-t border-[#66666E]/40 bg-[#000000] py-12 px-4 sm:px-6 lg:px-8 text-xs text-[#9999A1]">
-      <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-        {/* Left: Copyright & Identity */}
-        <div className="flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left">
-          <div className="flex items-center gap-2 text-[#E6E6E9] font-medium">
+    <footer className="border-t border-[#37607e]/40 bg-[#161817] py-12 px-4 sm:px-6 lg:px-8 text-xs text-[#8ca8ba]">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+        {/* Left: Copyright & Technical Identity */}
+        <div className="flex flex-col sm:flex-row items-center gap-3.5 text-center sm:text-left">
+          <div className="flex items-center gap-2 text-white font-bold font-sans uppercase">
             <span>{personal.name}</span>
-            <span className="text-[#66666E]">/</span>
-            <span className="font-mono text-[#F4F4F6]">{personal.englishName}</span>
+            <span className="text-[#37607e]">/</span>
+            <span className="font-mono text-[#e9874f]">{personal.englishName}</span>
           </div>
-          <span className="hidden sm:inline text-[#66666E]">|</span>
-          <span className="text-[#9999A1]">
-            © {currentYear} All rights reserved. Built with React & Tailwind CSS.
+          <span className="hidden sm:inline text-[#37607e]">|</span>
+          <span className="text-[#8ca8ba] font-mono">
+            © {currentYear} ALL RIGHTS RESERVED. ARCHITECTURE CERTIFIED FOR HIGH-RELIABILITY ENVIRONMENTS.
           </span>
         </div>
 
@@ -33,7 +33,7 @@ export const Footer: React.FC = () => {
               href={personal.socials.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1.5 rounded hover:text-[#F4F4F6] transition-colors"
+              className="p-2 rounded-sm bg-[#232b30] border border-[#37607e]/50 text-[#8ca8ba] hover:text-white hover:border-[#e9874f] transition-colors"
               aria-label="GitHub"
             >
               <Github className="w-4 h-4" />
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
               href={personal.socials.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1.5 rounded hover:text-[#F4F4F6] transition-colors"
+              className="p-2 rounded-sm bg-[#232b30] border border-[#37607e]/50 text-[#8ca8ba] hover:text-white hover:border-[#e9874f] transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-4 h-4" />
@@ -51,28 +51,28 @@ export const Footer: React.FC = () => {
               href={personal.socials.x}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-1.5 rounded hover:text-[#F4F4F6] transition-colors"
+              className="p-2 rounded-sm bg-[#232b30] border border-[#37607e]/50 text-[#8ca8ba] hover:text-white hover:border-[#e9874f] transition-colors"
               aria-label="X"
             >
               <Twitter className="w-4 h-4" />
             </a>
             <a
               href={`mailto:${personal.email}`}
-              className="p-1.5 rounded hover:text-[#F4F4F6] transition-colors"
+              className="p-2 rounded-sm bg-[#232b30] border border-[#37607e]/50 text-[#8ca8ba] hover:text-white hover:border-[#e9874f] transition-colors"
               aria-label="Email"
             >
               <Mail className="w-4 h-4" />
             </a>
           </div>
 
-          <div className="h-4 w-[1px] bg-[#66666E]/40" />
+          <div className="h-5 w-[1px] bg-[#37607e]/40" />
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#000000] hover:bg-[#66666E]/20 border border-[#66666E] hover:border-[#E6E6E9] text-[#E6E6E9] hover:text-[#F4F4F6] transition-colors cursor-pointer"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-sm bg-[#232b30] hover:bg-[#e9874f] border border-[#37607e]/50 hover:border-[#e9874f] text-[#c1d5df] hover:text-white transition-all cursor-pointer font-mono font-semibold"
             title="回到頂部"
           >
-            <span className="text-[11px] font-mono">TOP</span>
+            <span className="text-[11px]">TOP</span>
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>

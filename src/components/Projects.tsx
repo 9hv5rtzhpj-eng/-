@@ -14,10 +14,10 @@ export const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filterTabs = [
-    { id: 'all', label: '全部專案 (All)' },
-    { id: 'ai', label: 'AI Agent & 向量檢索' },
-    { id: 'fullstack', label: '全端即時協同' },
-    { id: 'cloud', label: '高吞吐可觀測性' },
+    { id: 'all', label: 'ALL SYSTEMS' },
+    { id: 'ai', label: 'AI AGENTS & RAG' },
+    { id: 'fullstack', label: 'REAL-TIME WORKSPACES' },
+    { id: 'cloud', label: 'TELEMETRY & CLOUD' },
   ] as const;
 
   const filteredProjects = projects.filter(
@@ -25,32 +25,34 @@ export const Projects: React.FC = () => {
   );
 
   return (
-    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-[#66666E]/40 relative bg-[#000000]">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-[#37607e]/30 relative bg-[#161817]">
+      <div className="max-w-7xl mx-auto space-y-14">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-3">
-            <div className="text-xs font-mono font-medium text-[#9999A1] tracking-wider uppercase">
-              02. Featured Projects
+            <div className="text-xs font-mono font-medium text-[#e9874f] tracking-widest uppercase flex items-center gap-2">
+              <span>[ SECTION 02 ]</span>
+              <span>FEATURED PRODUCTION SYSTEMS & PROVEN DELIVERABLES</span>
             </div>
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#F4F4F6]">
-              精選架構專案與實戰成果
+            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white font-sans uppercase">
+              精選工程架構專案
             </h2>
-            <p className="text-[#9999A1] text-sm sm:text-base max-w-2xl">
+            <div className="h-0.5 w-16 bg-[#e9874f]" />
+            <p className="text-[#8ca8ba] text-sm sm:text-base max-w-2xl font-light">
               聚焦於解決高併發瓶頸、生產級 AI Agent 流程編排與低延遲分散式協同系統，所有指標均基於真實生產環境驗證。
             </p>
           </div>
 
-          {/* Interactive Filter Control */}
-          <div className="flex items-center gap-1.5 p-1 bg-[#000000] border border-[#66666E]/50 rounded-xl overflow-x-auto self-start md:self-auto">
+          {/* FMI Filter Controls */}
+          <div className="flex items-center gap-1.5 p-1 bg-[#232b30] border border-[#37607e]/50 rounded-sm overflow-x-auto self-start md:self-auto">
             {filterTabs.map((tab) => (
               <button
                 key={tab.id}
                 onClick={() => setActiveCategory(tab.id)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-lg whitespace-nowrap transition-colors cursor-pointer ${
+                className={`px-3.5 py-1.5 text-xs font-mono rounded-sm whitespace-nowrap transition-all cursor-pointer ${
                   activeCategory === tab.id
-                    ? 'bg-[#F4F4F6] text-[#000000] font-semibold'
-                    : 'text-[#9999A1] hover:text-[#F4F4F6] hover:bg-[#66666E]/20'
+                    ? 'bg-[#37607e] text-white font-bold border border-[#e9874f]/50'
+                    : 'text-[#8ca8ba] hover:text-white hover:bg-white/5'
                 }`}
               >
                 {tab.label}
@@ -61,53 +63,53 @@ export const Projects: React.FC = () => {
 
         {/* Project Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, idx) => (
             <div
               key={project.id}
-              className="group rounded-2xl bg-[#000000] border border-[#66666E]/60 hover:border-[#E6E6E9] p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:shadow-black/70 hover:-translate-y-1"
+              className="group rounded-sm bg-[#232b30] border border-[#37607e]/50 hover:border-[#e9874f] p-6 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-2xl hover:shadow-black/60 relative overflow-hidden"
             >
               <div className="space-y-5">
-                {/* Card Header: Category & Year */}
+                {/* Card Header: Category & Spec Index */}
                 <div className="flex items-center justify-between text-xs font-mono">
-                  <span className="text-[#E6E6E9] font-semibold tracking-wide">
-                    {project.categoryLabel}
+                  <span className="text-[#e9874f] font-bold tracking-wider uppercase">
+                    [ SYSTEM // 0{idx + 1} ] · {project.categoryLabel}
                   </span>
-                  <span className="text-[#66666E]">{project.year}</span>
+                  <span className="text-[#8ca8ba]">PROD_{project.year}</span>
                 </div>
 
                 {/* Project Title & Subtitle */}
                 <div className="space-y-1.5">
-                  <h3 className="text-xl sm:text-2xl font-bold text-[#F4F4F6] group-hover:text-white transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-[#e9874f] transition-colors font-sans uppercase">
                     {project.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-[#9999A1] font-sans">
+                  <p className="text-xs sm:text-sm text-[#8ca8ba] font-mono">
                     {project.subtitle}
                   </p>
                 </div>
 
-                {/* Impact Highlight Box (Concrete metrics) */}
-                <div className="p-3.5 rounded-xl bg-[#000000] border border-[#66666E]/60 space-y-1">
-                  <div className="text-[11px] font-mono text-[#E6E6E9] uppercase tracking-wider font-medium flex items-center gap-1.5">
-                    <Zap className="w-3 h-3 text-[#F4F4F6]" />
-                    核心成果與實測指標
+                {/* Impact Highlight Box (FMI industrial benchmark box) */}
+                <div className="p-4 rounded-sm bg-[#161817] border-l-2 border-[#e9874f] space-y-1">
+                  <div className="text-[10px] font-mono text-[#e9874f] uppercase tracking-widest font-bold flex items-center gap-1.5">
+                    <Zap className="w-3 h-3 text-[#e9874f]" />
+                    KEY MEASURED IMPACT (實測生產成果)
                   </div>
-                  <p className="text-xs sm:text-sm text-[#F4F4F6] leading-snug">
+                  <p className="text-xs sm:text-sm text-[#f1f5f5] leading-snug font-sans">
                     {project.impact}
                   </p>
                 </div>
 
                 {/* Description */}
-                <p className="text-xs sm:text-sm text-[#9999A1] leading-relaxed font-sans">
+                <p className="text-xs sm:text-sm text-[#8ca8ba] leading-relaxed font-sans font-light">
                   {project.description}
                 </p>
 
-                {/* Tech Stack Tags */}
+                {/* Tech Stack Badges */}
                 <div className="space-y-2 pt-1">
                   <div className="flex flex-wrap gap-1.5">
-                    {project.techStack.map((tech, idx) => (
+                    {project.techStack.map((tech, i) => (
                       <span
-                        key={idx}
-                        className="text-[11px] font-mono px-2.5 py-1 rounded-md bg-[#000000] border border-[#66666E]/50 text-[#E6E6E9]"
+                        key={i}
+                        className="text-[11px] font-mono px-2.5 py-1 rounded-sm bg-[#161817] border border-[#37607e]/50 text-[#c1d5df]"
                       >
                         {tech}
                       </span>
@@ -116,15 +118,15 @@ export const Projects: React.FC = () => {
                 </div>
               </div>
 
-              {/* Card Footer: Action Links & Architecture Deep Dive */}
-              <div className="mt-7 pt-4 border-t border-[#66666E]/40 flex items-center justify-between gap-3">
+              {/* Card Footer: Action Links & FMI circular arrow button */}
+              <div className="mt-8 pt-4 border-t border-[#37607e]/40 flex items-center justify-between gap-3">
                 <button
                   onClick={() => setSelectedProject(project)}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono text-[#E6E6E9] hover:text-[#F4F4F6] transition-colors cursor-pointer group/btn"
+                  className="inline-flex items-center gap-2 text-xs font-mono text-[#c1d5df] hover:text-[#e9874f] transition-colors cursor-pointer group/btn"
                 >
-                  <Info className="w-3.5 h-3.5 text-[#9999A1]" />
-                  <span>查看架構細節</span>
-                  <span className="group-hover/btn:translate-x-0.5 transition-transform text-[#F4F4F6]">→</span>
+                  <Info className="w-3.5 h-3.5 text-[#8ca8ba]" />
+                  <span>VIEW SPECIFICATION</span>
+                  <span className="group-hover/btn:translate-x-1 transition-transform text-[#e9874f]">→</span>
                 </button>
 
                 <div className="flex items-center gap-2">
@@ -133,8 +135,8 @@ export const Projects: React.FC = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-[#000000] hover:bg-[#66666E]/20 border border-[#66666E] text-[#E6E6E9] hover:text-white transition-colors"
-                      title="查看 GitHub 原始碼"
+                      className="p-2 rounded-sm bg-[#161817] hover:bg-[#37607e] border border-[#37607e]/50 text-[#c1d5df] hover:text-white transition-colors"
+                      title="GitHub Repository"
                     >
                       <Github className="w-4 h-4" />
                     </a>
@@ -144,32 +146,35 @@ export const Projects: React.FC = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#F4F4F6] hover:bg-[#E6E6E9] text-[#000000] font-semibold text-xs transition-colors"
-                      title="打開 Live Demo"
+                      className="group/demo inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-[#37607e] hover:bg-[#e9874f] text-white text-xs font-mono font-bold transition-all shadow-xs"
+                      title="Live System"
                     >
-                      <span>Demo</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
+                      <span>DEMO</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/demo:translate-x-0.5" />
                     </a>
                   )}
                 </div>
               </div>
+
+              {/* Hairline accent on bottom */}
+              <div className="h-0.5 w-0 group-hover:w-full bg-[#e9874f] transition-all duration-500 absolute bottom-0 left-0" />
             </div>
           ))}
         </div>
 
         {/* Note on Real Projects placeholder */}
-        <div className="p-4 rounded-xl bg-[#000000] border border-[#66666E]/50 flex items-center justify-between text-xs text-[#9999A1]">
+        <div className="p-4 rounded-sm bg-[#232b30] border border-[#37607e]/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-[#8ca8ba]">
           <span>
-            💡 提示：以上專案資料均於 <code>src/data/portfolioData.ts</code> 中定義，可隨時替換為您的實體 GitHub 倉庫與 Demo 連結。
+            💡 所有架構規格與成果資料均於 <code>src/data/portfolioData.ts</code> 模組化定義，可無縫置換為真實專案數據。
           </span>
           <a
             href="https://github.com/sam-lin"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#F4F4F6] hover:underline font-mono inline-flex items-center gap-1 shrink-0 ml-4"
+            className="text-[#e9874f] hover:underline font-mono inline-flex items-center gap-1 shrink-0 font-bold"
           >
-            <span>GitHub 全部倉庫</span>
-            <ArrowUpRight className="w-3 h-3" />
+            <span>VIEW ALL REPOSITORIES</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
           </a>
         </div>
       </div>

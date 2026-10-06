@@ -11,6 +11,7 @@ import {
   ExternalLink,
   Clock,
   MapPin,
+  ArrowUpRight,
 } from 'lucide-react';
 
 export const Contact: React.FC = () => {
@@ -40,7 +41,7 @@ export const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!formState.name.trim() || !formState.email.trim() || !formState.message.trim()) {
-      setErrorMessage('請填寫姓名、電子郵件與訊息內容。');
+      setErrorMessage('請填寫姓名、電子郵件與需求內容。');
       return;
     }
     setErrorMessage('');
@@ -49,7 +50,6 @@ export const Contact: React.FC = () => {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
-      console.log('Form submitted successfully:', formState);
     }, 600);
   };
 
@@ -65,17 +65,19 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-[#66666E]/40 relative bg-[#000000]">
-      <div className="max-w-6xl mx-auto space-y-16">
+    <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 border-t border-[#37607e]/30 relative bg-[#161817]">
+      <div className="max-w-7xl mx-auto space-y-16">
         {/* Section Header */}
         <div className="space-y-3">
-          <div className="text-xs font-mono font-medium text-[#9999A1] tracking-wider uppercase">
-            04. Get In Touch
+          <div className="text-xs font-mono font-medium text-[#e9874f] tracking-widest uppercase flex items-center gap-2">
+            <span>[ SECTION 04 ]</span>
+            <span>DIRECT INQUIRIES & TECHNICAL COLLABORATION</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#F4F4F6]">
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white font-sans uppercase">
             啟動技術對話 · 聯絡洽談
           </h2>
-          <p className="text-[#9999A1] text-sm sm:text-base max-w-2xl">
+          <div className="h-0.5 w-16 bg-[#e9874f]" />
+          <p className="text-[#8ca8ba] text-sm sm:text-base max-w-2xl font-light">
             無論是大型全端系統重構、生產級 AI Agent 落地、高併發後端架構諮詢，或全職技術團隊招募，歡迎隨時來信。
           </p>
         </div>
@@ -84,40 +86,40 @@ export const Contact: React.FC = () => {
           {/* Left: Contact Info, Direct Email Copy & Socials (5 cols) */}
           <div className="lg:col-span-5 space-y-8">
             {/* Quick Email Copy Card */}
-            <div className="p-6 rounded-2xl bg-[#000000] border border-[#66666E]/60 space-y-4">
-              <span className="text-xs font-mono text-[#9999A1] uppercase tracking-wider">
-                Direct Email (點擊一鍵複製)
+            <div className="p-6 sm:p-7 rounded-sm bg-[#232b30] border border-[#37607e]/50 space-y-5">
+              <span className="text-xs font-mono text-[#8ca8ba] uppercase tracking-wider block">
+                DIRECT EMAIL SPECIFICATION
               </span>
-              <div className="flex items-center justify-between gap-3 p-3.5 rounded-xl bg-[#000000] border border-[#66666E]">
-                <span className="text-sm font-mono text-[#F4F4F6] select-all">
+              <div className="flex items-center justify-between gap-3 p-4 rounded-sm bg-[#161817] border border-[#37607e]/60">
+                <span className="text-sm font-mono text-white select-all">
                   {personal.email}
                 </span>
                 <button
                   onClick={handleCopyEmail}
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#F4F4F6] hover:bg-[#E6E6E9] text-[#000000] font-semibold text-xs font-mono transition-colors cursor-pointer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-[#37607e] hover:bg-[#e9874f] text-white font-mono text-xs font-semibold transition-colors cursor-pointer"
                   title="複製 Email"
                 >
                   {copied ? (
                     <>
                       <Check className="w-3.5 h-3.5" />
-                      <span>已複製！</span>
+                      <span>COPIED</span>
                     </>
                   ) : (
                     <>
                       <Copy className="w-3.5 h-3.5" />
-                      <span>複製</span>
+                      <span>COPY</span>
                     </>
                   )}
                 </button>
               </div>
 
-              <div className="pt-2 flex items-center justify-between text-xs text-[#9999A1] font-mono">
-                <span className="flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-[#E6E6E9]" />
-                  回覆時間：24 小時內
+              <div className="pt-2 flex items-center justify-between text-xs text-[#8ca8ba] font-mono">
+                <span className="flex items-center gap-1.5 text-white">
+                  <Clock className="w-3.5 h-3.5 text-[#e9874f]" />
+                  RESPONSE TIME: &lt; 24 HOURS
                 </span>
                 <span className="flex items-center gap-1.5">
-                  <MapPin className="w-3.5 h-3.5 text-[#9999A1]" />
+                  <MapPin className="w-3.5 h-3.5 text-[#8ca8ba]" />
                   {personal.location}
                 </span>
               </div>
@@ -125,114 +127,126 @@ export const Contact: React.FC = () => {
 
             {/* Social Connect Networks */}
             <div className="space-y-3">
-              <span className="text-xs font-mono text-[#9999A1] uppercase tracking-wider block">
-                社群與程式碼庫 (Online Networks)
+              <span className="text-xs font-mono text-[#8ca8ba] uppercase tracking-wider block">
+                VERIFIED PROFILES & NETWORKS
               </span>
               <div className="grid grid-cols-2 gap-3">
                 <a
                   href={personal.socials.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3.5 rounded-xl bg-[#000000] hover:bg-[#66666E]/20 border border-[#66666E]/60 hover:border-[#E6E6E9] flex items-center justify-between text-xs text-[#E6E6E9] hover:text-white transition-all group"
+                  className="p-4 rounded-sm bg-[#232b30] hover:bg-[#161817] border border-[#37607e]/50 hover:border-[#e9874f] flex items-center justify-between text-xs text-[#c1d5df] hover:text-white transition-all group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <Github className="w-4 h-4 text-[#9999A1] group-hover:text-white transition-colors" />
-                    <span className="font-medium">GitHub</span>
+                    <Github className="w-4 h-4 text-[#8ca8ba] group-hover:text-white transition-colors" />
+                    <span className="font-semibold uppercase tracking-wider font-mono">GitHub</span>
                   </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-[#66666E] group-hover:text-[#F4F4F6] transition-colors" />
+                  <div className="size-6 rounded-full border border-white/20 flex items-center justify-center text-[#8ca8ba] group-hover:border-[#e9874f] group-hover:bg-[#e9874f] group-hover:text-white transition-all">
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </div>
                 </a>
 
                 <a
                   href={personal.socials.linkedin}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3.5 rounded-xl bg-[#000000] hover:bg-[#66666E]/20 border border-[#66666E]/60 hover:border-[#E6E6E9] flex items-center justify-between text-xs text-[#E6E6E9] hover:text-white transition-all group"
+                  className="p-4 rounded-sm bg-[#232b30] hover:bg-[#161817] border border-[#37607e]/50 hover:border-[#e9874f] flex items-center justify-between text-xs text-[#c1d5df] hover:text-white transition-all group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <Linkedin className="w-4 h-4 text-[#9999A1] group-hover:text-white transition-colors" />
-                    <span className="font-medium">LinkedIn</span>
+                    <Linkedin className="w-4 h-4 text-[#8ca8ba] group-hover:text-white transition-colors" />
+                    <span className="font-semibold uppercase tracking-wider font-mono">LinkedIn</span>
                   </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-[#66666E] group-hover:text-[#F4F4F6] transition-colors" />
+                  <div className="size-6 rounded-full border border-white/20 flex items-center justify-center text-[#8ca8ba] group-hover:border-[#e9874f] group-hover:bg-[#e9874f] group-hover:text-white transition-all">
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </div>
                 </a>
 
                 <a
                   href={personal.socials.x}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3.5 rounded-xl bg-[#000000] hover:bg-[#66666E]/20 border border-[#66666E]/60 hover:border-[#E6E6E9] flex items-center justify-between text-xs text-[#E6E6E9] hover:text-white transition-all group"
+                  className="p-4 rounded-sm bg-[#232b30] hover:bg-[#161817] border border-[#37607e]/50 hover:border-[#e9874f] flex items-center justify-between text-xs text-[#c1d5df] hover:text-white transition-all group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <Twitter className="w-4 h-4 text-[#9999A1] group-hover:text-white transition-colors" />
-                    <span className="font-medium">X (Twitter)</span>
+                    <Twitter className="w-4 h-4 text-[#8ca8ba] group-hover:text-white transition-colors" />
+                    <span className="font-semibold uppercase tracking-wider font-mono">X (Twitter)</span>
                   </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-[#66666E] group-hover:text-[#F4F4F6] transition-colors" />
+                  <div className="size-6 rounded-full border border-white/20 flex items-center justify-center text-[#8ca8ba] group-hover:border-[#e9874f] group-hover:bg-[#e9874f] group-hover:text-white transition-all">
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </div>
                 </a>
 
                 <a
                   href={`mailto:${personal.email}`}
-                  className="p-3.5 rounded-xl bg-[#000000] hover:bg-[#66666E]/20 border border-[#66666E]/60 hover:border-[#E6E6E9] flex items-center justify-between text-xs text-[#E6E6E9] hover:text-white transition-all group"
+                  className="p-4 rounded-sm bg-[#232b30] hover:bg-[#161817] border border-[#37607e]/50 hover:border-[#e9874f] flex items-center justify-between text-xs text-[#c1d5df] hover:text-white transition-all group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <Mail className="w-4 h-4 text-[#9999A1] group-hover:text-white transition-colors" />
-                    <span className="font-medium">Direct Mail</span>
+                    <Mail className="w-4 h-4 text-[#8ca8ba] group-hover:text-white transition-colors" />
+                    <span className="font-semibold uppercase tracking-wider font-mono">Email</span>
                   </div>
-                  <ExternalLink className="w-3.5 h-3.5 text-[#66666E] group-hover:text-[#F4F4F6] transition-colors" />
+                  <div className="size-6 rounded-full border border-white/20 flex items-center justify-center text-[#8ca8ba] group-hover:border-[#e9874f] group-hover:bg-[#e9874f] group-hover:text-white transition-all">
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </div>
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Right: Interactive Contact Form (7 cols) */}
+          {/* Right: Technical Inquiry Form (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="rounded-2xl bg-[#000000] border border-[#66666E]/60 p-6 sm:p-8">
+            <div className="rounded-sm bg-[#232b30] border border-[#37607e]/50 p-6 sm:p-8">
               {isSuccess ? (
                 <div className="py-8 text-center space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-[#E6E6E9]/15 border border-[#66666E] text-[#F4F4F6] mx-auto flex items-center justify-center">
-                    <Check className="w-6 h-6" />
+                  <div className="w-14 h-14 rounded-full bg-[#37607e]/30 border border-[#e9874f] text-[#e9874f] mx-auto flex items-center justify-center">
+                    <Check className="w-7 h-7" />
                   </div>
-                  <div className="space-y-1">
-                    <h3 className="text-xl font-bold text-[#F4F4F6]">訊息已就緒！</h3>
-                    <p className="text-xs sm:text-sm text-[#9999A1] max-w-md mx-auto">
-                      感謝您的來信，{formState.name}。我已記錄您的需求，您也可以點擊下方以本地郵件用戶端直接傳送確認信。
+                  <div className="space-y-1.5">
+                    <h3 className="text-xl font-bold text-white font-sans uppercase">
+                      INQUIRY RECORDED // 需求已登記
+                    </h3>
+                    <p className="text-xs sm:text-sm text-[#8ca8ba] max-w-md mx-auto font-light">
+                      感謝您的來信，{formState.name}。我已記錄您的需求，您亦可點擊下方直接透過本地郵件客戶端送出確認信件。
                     </p>
                   </div>
                   <div className="flex items-center justify-center gap-3 pt-4">
                     <a
                       href={`mailto:${personal.email}?subject=${encodeURIComponent(
-                        `[技術洽談] ${formState.topic} - ${formState.name}`
+                        `[FMI-INQUIRY] ${formState.topic} - ${formState.name}`
                       )}&body=${encodeURIComponent(formState.message)}`}
-                      className="px-4 py-2 rounded-lg bg-[#F4F4F6] hover:bg-[#E6E6E9] text-[#000000] font-semibold text-xs inline-flex items-center gap-2"
+                      className="px-5 py-2.5 rounded-sm bg-[#e9874f] hover:bg-[#e35b0e] text-white font-semibold text-xs tracking-wider uppercase inline-flex items-center gap-2"
                     >
                       <Mail className="w-3.5 h-3.5" />
-                      <span>以郵件客戶端送出</span>
+                      <span>OPEN EMAIL CLIENT</span>
                     </a>
                     <button
                       onClick={handleResetForm}
-                      className="px-4 py-2 rounded-lg bg-[#000000] border border-[#66666E] text-[#E6E6E9] hover:text-[#F4F4F6] hover:border-[#E6E6E9] text-xs cursor-pointer"
+                      className="px-4 py-2.5 rounded-sm bg-[#161817] border border-[#37607e]/60 text-[#c1d5df] hover:text-white text-xs font-mono uppercase cursor-pointer"
                     >
-                      撰寫另一則訊息
+                      RESET FORM
                     </button>
                   </div>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="space-y-1">
-                    <h3 className="text-lg font-bold text-[#F4F4F6]">寄送合作或技術諮詢</h3>
-                    <p className="text-xs text-[#9999A1]">
-                      填寫以下表單，我將以最快速度透過 Email 與您聯繫。
+                    <h3 className="text-lg font-bold text-white font-sans uppercase">
+                      TECHNICAL CONSULTATION & INQUIRY
+                    </h3>
+                    <p className="text-xs text-[#8ca8ba] font-light">
+                      填寫以下規格表單，我將於 24 小時內親自透過 Email 與您聯繫。
                     </p>
                   </div>
 
                   {errorMessage && (
-                    <div className="p-3 rounded-lg bg-red-950/30 border border-red-500/40 text-xs text-red-200">
+                    <div className="p-3 rounded-sm bg-red-950/40 border border-red-500/50 text-xs text-red-200 font-mono">
                       {errorMessage}
                     </div>
                   )}
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-[#E6E6E9]">
-                        您的姓名 / 稱謂 <span className="text-[#F4F4F6]">*</span>
+                      <label className="text-xs font-mono text-[#c1d5df] uppercase">
+                        NAME / TITLE <span className="text-[#e9874f]">*</span>
                       </label>
                       <input
                         type="text"
@@ -240,13 +254,13 @@ export const Contact: React.FC = () => {
                         value={formState.name}
                         onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                         required
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-[#000000] border border-[#66666E] text-[#F4F4F6] text-sm focus:outline-none focus:border-[#E6E6E9] transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-sm bg-[#161817] border border-[#37607e]/60 text-white text-sm focus:outline-none focus:border-[#e9874f] transition-colors"
                       />
                     </div>
 
                     <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-[#E6E6E9]">
-                        電子郵件 (Email) <span className="text-[#F4F4F6]">*</span>
+                      <label className="text-xs font-mono text-[#c1d5df] uppercase">
+                        BUSINESS EMAIL <span className="text-[#e9874f]">*</span>
                       </label>
                       <input
                         type="email"
@@ -254,19 +268,19 @@ export const Contact: React.FC = () => {
                         value={formState.email}
                         onChange={(e) => setFormState({ ...formState, email: e.target.value })}
                         required
-                        className="w-full px-3.5 py-2.5 rounded-lg bg-[#000000] border border-[#66666E] text-[#F4F4F6] text-sm focus:outline-none focus:border-[#E6E6E9] transition-colors"
+                        className="w-full px-3.5 py-2.5 rounded-sm bg-[#161817] border border-[#37607e]/60 text-white text-sm focus:outline-none focus:border-[#e9874f] transition-colors"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-[#E6E6E9]">
-                      洽談項目領域
+                    <label className="text-xs font-mono text-[#c1d5df] uppercase">
+                      PRIMARY COLLABORATION SCOPE
                     </label>
                     <select
                       value={formState.topic}
                       onChange={(e) => setFormState({ ...formState, topic: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-[#000000] border border-[#66666E] text-[#F4F4F6] text-sm focus:outline-none focus:border-[#E6E6E9] transition-colors"
+                      className="w-full px-3.5 py-2.5 rounded-sm bg-[#161817] border border-[#37607e]/60 text-white text-sm focus:outline-none focus:border-[#e9874f] transition-colors"
                     >
                       <option value="全端系統架構或開發">全端系統架構或開發 (Full-Stack Engineering)</option>
                       <option value="AI Agent 系統與工作流整合">AI Agent 系統與工作流整合 (Agentic Systems)</option>
@@ -277,8 +291,8 @@ export const Contact: React.FC = () => {
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-[#E6E6E9]">
-                      訊息內容與專案簡述 <span className="text-[#F4F4F6]">*</span>
+                    <label className="text-xs font-mono text-[#c1d5df] uppercase">
+                      MESSAGE & PROJECT CONTEXT <span className="text-[#e9874f]">*</span>
                     </label>
                     <textarea
                       rows={4}
@@ -286,20 +300,20 @@ export const Contact: React.FC = () => {
                       value={formState.message}
                       onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                       required
-                      className="w-full px-3.5 py-2.5 rounded-lg bg-[#000000] border border-[#66666E] text-[#F4F4F6] text-sm focus:outline-none focus:border-[#E6E6E9] transition-colors resize-none"
+                      className="w-full px-3.5 py-2.5 rounded-sm bg-[#161817] border border-[#37607e]/60 text-white text-sm focus:outline-none focus:border-[#e9874f] transition-colors resize-none font-sans"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3 px-4 rounded-lg bg-[#F4F4F6] hover:bg-[#E6E6E9] disabled:opacity-50 text-[#000000] font-semibold text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
+                    className="w-full py-3.5 px-4 rounded-sm bg-[#37607e] hover:bg-[#e9874f] disabled:opacity-50 text-white font-bold text-xs tracking-widest uppercase transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-[0.99]"
                   >
                     {isSubmitting ? (
-                      <span>處理中...</span>
+                      <span>TRANSMITTING...</span>
                     ) : (
                       <>
-                        <span>發送合作訊息</span>
+                        <span>TRANSMIT INQUIRY</span>
                         <Send className="w-4 h-4" />
                       </>
                     )}
