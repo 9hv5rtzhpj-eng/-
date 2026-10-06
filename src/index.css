@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color-scheme: dark;
+    background-color: #000000;
+    color: #F4F4F6;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* 簡約現代網格紋理 (000000 + 66666E) */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(102, 102, 110, 0.22) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(230, 230, 233, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+/* 典雅黑白光暈 (000000 / E6E6E9 / F4F4F6) */
+.ambient-glow {
+  background: radial-gradient(750px circle at 50% 18%, rgba(230, 230, 233, 0.05), transparent 65%);
+}
+
+/* 細膩自訂滾動條 (000000 - 66666E - 9999A1) */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #66666E;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #9999A1;
+}
